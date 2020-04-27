@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { BurgersService } from './../swagger/api/burgers.service';
+import { Component, OnInit , Input} from '@angular/core';
 
 @Component({
   selector: 'app-burger',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BurgerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private burgersService :BurgersService) {   }
+  burger;
+  @Input() id;
 
   ngOnInit(): void {
+    this.getBurgers(this.id);
   }
 
+  getBurgers(id): void{
+    this.burger = this.burgersService.burgerDetail(id);
+  }
 }
