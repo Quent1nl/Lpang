@@ -9,7 +9,7 @@ import { BurgerComponent } from './burger/burger.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BurgerComponent
+    BurgerComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { BurgersService } from './../swagger/api/burgers.service';
 export class BurgerComponent implements OnInit {
   
   burger: Burger[];
+
  
   constructor(private burgersService :BurgersService) {   }
   
@@ -23,4 +24,6 @@ export class BurgerComponent implements OnInit {
     this.burgersService.listBurgers()
     .subscribe( (result) => this.burger = result);
   }
+
+  
 }
