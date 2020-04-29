@@ -1,4 +1,8 @@
-<div **ngIf="burger">
-    <h2>{{burger.name}}</h2>
-    <div><span>id: </span>{{ burger.id }}</div>
+<div>
+    <ul *ngIf = "burger">
+      <li *ngFor= "let burger of burger">
+        <p>Burger {{burger.id}} : {{burger.name}} = {{burger.price}} €</p>
+        <img width=300 src="{{burger.image}}"/>
+      </li>
+    </ul>
 </div>

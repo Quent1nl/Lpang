@@ -1,5 +1,7 @@
+import { Burger } from './../swagger/model/burger';
+import { Component, OnInit } from '@angular/core';
 import { BurgersService } from './../swagger/api/burgers.service';
-import { Component, OnInit , Input} from '@angular/core';
+
 
 @Component({
   selector: 'app-burger',
@@ -7,16 +9,18 @@ import { Component, OnInit , Input} from '@angular/core';
   styleUrls: ['./burger.component.css']
 })
 export class BurgerComponent implements OnInit {
-
+  
+  burger: Burger[];
+ 
   constructor(private burgersService :BurgersService) {   }
-  burger;
-  @Input() id;
+  
 
   ngOnInit(): void {
-    this.getBurgers(this.id);
+    this.getBurgers();
   }
 
-  getBurgers(id): void{
-    this.burger = this.burgersService.burgerDetail(id);
+  getBurgers(): void{
+    this.burgersService.listBurgers()
+    .subscribe( (result) => this.burger = result);
   }
 }
