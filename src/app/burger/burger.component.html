@@ -1,8 +1,22 @@
-<div>
-    <ul *ngIf = "burger">
-      <li *ngFor= "let burger of burger">
-        <p>Burger {{burger.id}} : {{burger.name}} = {{burger.price}} €</p>
-        <img width=300 src="{{burger.image}}"/>
-      </li>
-    </ul>
-</div>
+
+<mat-grid-list cols="3" rowHeight="200px">
+  <mat-grid-tile [colspan]="1" [rowspan]="3" *ngFor="let burger of burger">
+    <mat-card class = "cardClass">
+      <mat-card-header>
+        <mat-card-title>{{burger.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{burger.image}}" alt="Photo du Burger">
+      <mat-card-content>
+        <p>
+          {{burger.price}} €
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-stroked-button routerLink="burger/{{burger.id}}" color="primary">More</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+  
+
+
